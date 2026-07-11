@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, MessageCircle, Phone } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
+import { ArrowLeft, Phone } from "lucide-react";
+import { TripRequestForm } from "@/src/components/book/trip-request-form";
 import { CONTACT } from "@/src/lib/site-data";
 
 export const metadata: Metadata = {
@@ -10,57 +10,44 @@ export const metadata: Metadata = {
     "Request a Ladakh trip with Stanzin Travels — drivers, stays and complete itineraries.",
 };
 
-/** Placeholder for the trip request form; the form will live here. */
 export default function BookPage() {
   return (
-    <main className="grain flex min-h-svh flex-col items-center justify-center bg-ink px-4 py-24 text-center">
-      <p className="flex items-center gap-3 text-xs font-semibold tracking-[0.3em] text-primary uppercase">
-        <span aria-hidden className="flag-stripe h-0.5 w-10 rounded-full" />
-        Trip request
-        <span aria-hidden className="flag-stripe h-0.5 w-10 rounded-full" />
-      </p>
-      <h1 className="mt-5 font-display text-4xl font-medium text-bone sm:text-6xl">
-        Book your trip.
-      </h1>
-      <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-bone/75">
-        Until the request form lands here, the fastest way to lock in your
-        dates is a call or a WhatsApp message.
-      </p>
-
-      <div className="mt-9 flex flex-wrap justify-center gap-3">
-        <Button
-          asChild
-          size="lg"
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
+    <main className="grain min-h-svh bg-ink pb-24 sm:pb-32">
+      <header className="mx-auto flex max-w-5xl items-center justify-between px-4 pt-6 sm:px-6">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-bone/60 transition-colors hover:text-bone"
         >
-          <a href={CONTACT.tel}>
-            <Phone data-slot="icon" />
-            {CONTACT.phoneDisplay}
-          </a>
-        </Button>
-        <Button
-          asChild
-          size="lg"
-          variant="outline"
-          className="border-bone/30 bg-bone/5 text-bone backdrop-blur-sm hover:bg-bone/15 hover:text-bone"
-        >
-          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">
-            <MessageCircle data-slot="icon" />
-            WhatsApp
-          </a>
-        </Button>
-      </div>
-
-      <Button
-        asChild
-        variant="ghost"
-        className="mt-12 text-bone/60 hover:bg-bone/10 hover:text-bone"
-      >
-        <Link href="/">
-          <ArrowLeft data-slot="icon" />
-          Back to home
+          <ArrowLeft className="size-4" />
+          Stanzin Travels
         </Link>
-      </Button>
+        <a
+          href={CONTACT.tel}
+          className="inline-flex items-center gap-2 text-sm text-bone/60 transition-colors hover:text-primary"
+        >
+          <Phone className="size-4" />
+          {CONTACT.phoneDisplay}
+        </a>
+      </header>
+
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="py-14 sm:py-20">
+          <p className="flex items-center gap-3 text-xs font-semibold tracking-[0.3em] text-primary uppercase">
+            <span aria-hidden className="flag-stripe h-0.5 w-10 rounded-full" />
+            Trip request
+          </p>
+          <h1 className="mt-5 max-w-2xl font-display text-4xl leading-[1.05] font-medium text-balance text-bone sm:text-6xl">
+            Tell us about your trip.
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-bone/70 sm:text-lg">
+            Four quick things — who&apos;s coming, what you need, when, and on
+            what wheels. Namsras calls you back to lock it in. No payment, no
+            login.
+          </p>
+        </div>
+
+        <TripRequestForm />
+      </div>
     </main>
   );
 }

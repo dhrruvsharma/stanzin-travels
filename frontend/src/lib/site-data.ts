@@ -10,6 +10,8 @@ export const CONTACT = {
 
 export type Service = {
   number: string;
+  /** Stable identifier sent to the backend as `service_type`. */
+  slug: "driver_only" | "hotel_only" | "complete_itinerary";
   title: string;
   tagline: string;
   description: string;
@@ -22,6 +24,7 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     number: "01",
+    slug: "driver_only",
     title: "Driver & Vehicle",
     tagline: "You've planned it. He'll drive it.",
     description:
@@ -36,6 +39,7 @@ export const SERVICES: Service[] = [
   },
   {
     number: "02",
+    slug: "hotel_only",
     title: "Stays & Hotels",
     tagline: "Your wheels, our rooms.",
     description:
@@ -50,6 +54,7 @@ export const SERVICES: Service[] = [
   },
   {
     number: "03",
+    slug: "complete_itinerary",
     title: "The Complete Itinerary",
     tagline: "Land in Leh. Everything else is done.",
     description:
@@ -66,6 +71,8 @@ export const SERVICES: Service[] = [
 ];
 
 export type Vehicle = {
+  /** Stable identifier sent to the backend as `vehicle_slug`. */
+  slug: string;
   name: string;
   kind: string;
   blurb: string;
@@ -77,6 +84,7 @@ export type Vehicle = {
 export const FLEET: { cars: Vehicle[]; bikes: Vehicle[] } = {
   cars: [
     {
+      slug: "maruti-ertiga",
       name: "Maruti Ertiga",
       kind: "7-seat MPV",
       blurb: "The easy all-rounder for families and small groups.",
@@ -85,6 +93,7 @@ export const FLEET: { cars: Vehicle[]; bikes: Vehicle[] } = {
       imageAlt: "White Maruti Suzuki Ertiga MPV",
     },
     {
+      slug: "innova-crysta",
       name: "Innova Crysta",
       kind: "7-seat flagship",
       blurb: "Maximum comfort for the long passes — the group favourite.",
@@ -93,6 +102,7 @@ export const FLEET: { cars: Vehicle[]; bikes: Vehicle[] } = {
       imageAlt: "Toyota Innova Crysta side profile",
     },
     {
+      slug: "maruti-eeco",
       name: "Maruti Eeco",
       kind: "Budget van",
       blurb: "Honest, roomy and light on the pocket.",
@@ -103,6 +113,7 @@ export const FLEET: { cars: Vehicle[]; bikes: Vehicle[] } = {
   ],
   bikes: [
     {
+      slug: "himalayan-450",
       name: "Himalayan 450",
       kind: "Adventure tourer",
       blurb: "Royal Enfield's new workhorse, built for exactly this terrain.",
@@ -111,6 +122,7 @@ export const FLEET: { cars: Vehicle[]; bikes: Vehicle[] } = {
       imageAlt: "Royal Enfield Himalayan 450 motorcycle",
     },
     {
+      slug: "himalayan-411",
       name: "Himalayan 411",
       kind: "Adventure tourer",
       blurb: "Proven on every pass in Ladakh, a thousand times over.",
@@ -119,6 +131,7 @@ export const FLEET: { cars: Vehicle[]; bikes: Vehicle[] } = {
       imageAlt: "Royal Enfield Himalayan in the mountains",
     },
     {
+      slug: "bullet-350",
       name: "Bullet 350",
       kind: "Classic cruiser",
       blurb: "The classic thump, echoing off Himalayan rock since forever.",
