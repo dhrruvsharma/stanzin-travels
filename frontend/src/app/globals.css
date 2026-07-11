@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+  --font-heading: var(--font-fraunces);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-bone: var(--bone);
+  --color-bone-2: var(--bone-2);
+  --color-saffron: var(--saffron);
+  --color-flag-blue: var(--flag-blue);
+  --color-flag-red: var(--flag-red);
+  --color-flag-green: var(--flag-green);
+  --color-flag-yellow: var(--flag-yellow);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-kenburns: kenburns 14s ease-out forwards;
+  --animate-flutter: flutter 3.2s ease-in-out infinite;
+}
+
+:root {
+  /* Ladakh palette: high-altitude bone & sand, deep night-sky ink, burnt saffron */
+  --background: oklch(0.963 0.013 84);
+  --foreground: oklch(0.26 0.03 261);
+  --card: oklch(0.985 0.008 88);
+  --card-foreground: oklch(0.26 0.03 261);
+  --popover: oklch(0.985 0.008 88);
+  --popover-foreground: oklch(0.26 0.03 261);
+  --primary: oklch(0.6 0.145 55);
+  --primary-foreground: oklch(0.985 0.01 88);
+  --secondary: oklch(0.92 0.02 84);
+  --secondary-foreground: oklch(0.3 0.03 261);
+  --muted: oklch(0.925 0.017 84);
+  --muted-foreground: oklch(0.49 0.023 261);
+  --accent: oklch(0.915 0.03 68);
+  --accent-foreground: oklch(0.3 0.03 261);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.875 0.018 84);
+  --input: oklch(0.875 0.018 84);
+  --ring: oklch(0.6 0.145 55);
+  --chart-1: oklch(0.6 0.145 55);
+  --chart-2: oklch(0.55 0.11 250);
+  --chart-3: oklch(0.55 0.1 150);
+  --chart-4: oklch(0.75 0.13 90);
+  --chart-5: oklch(0.55 0.17 25);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0.008 88);
+  --sidebar-foreground: oklch(0.26 0.03 261);
+  --sidebar-primary: oklch(0.6 0.145 55);
+  --sidebar-primary-foreground: oklch(0.985 0.01 88);
+  --sidebar-accent: oklch(0.925 0.017 84);
+  --sidebar-accent-foreground: oklch(0.3 0.03 261);
+  --sidebar-border: oklch(0.875 0.018 84);
+  --sidebar-ring: oklch(0.6 0.145 55);
+  /* Brand extras */
+  --ink: oklch(0.225 0.028 262);
+  --ink-2: oklch(0.27 0.03 262);
+  --bone: oklch(0.945 0.015 84);
+  --bone-2: oklch(0.88 0.02 84);
+  --saffron: oklch(0.6 0.145 55);
+  --flag-blue: oklch(0.55 0.14 255);
+  --flag-red: oklch(0.55 0.19 28);
+  --flag-green: oklch(0.56 0.11 155);
+  --flag-yellow: oklch(0.8 0.14 90);
+}
+
+.dark {
+  --background: oklch(0.225 0.028 262);
+  --foreground: oklch(0.945 0.015 84);
+  --card: oklch(0.27 0.03 262);
+  --card-foreground: oklch(0.945 0.015 84);
+  --popover: oklch(0.27 0.03 262);
+  --popover-foreground: oklch(0.945 0.015 84);
+  --primary: oklch(0.72 0.15 60);
+  --primary-foreground: oklch(0.2 0.028 262);
+  --secondary: oklch(0.3 0.03 262);
+  --secondary-foreground: oklch(0.945 0.015 84);
+  --muted: oklch(0.3 0.03 262);
+  --muted-foreground: oklch(0.72 0.02 84);
+  --accent: oklch(0.32 0.035 262);
+  --accent-foreground: oklch(0.945 0.015 84);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.15 60);
+  --sidebar: oklch(0.27 0.03 262);
+  --sidebar-foreground: oklch(0.945 0.015 84);
+  --sidebar-primary: oklch(0.72 0.15 60);
+  --sidebar-primary-foreground: oklch(0.2 0.028 262);
+  --sidebar-accent: oklch(0.3 0.03 262);
+  --sidebar-accent-foreground: oklch(0.945 0.015 84);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.72 0.15 60);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.12) translateY(-1.5%);
+  }
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes flutter {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.5deg);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+}
+
+@utility grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Prayer-flag stripe: the five colours of a lungta string */
+@utility flag-stripe {
+  background: linear-gradient(
+    to right,
+    var(--flag-blue) 0 20%,
+    oklch(0.97 0.005 84) 20% 40%,
+    var(--flag-red) 40% 60%,
+    var(--flag-green) 60% 80%,
+    var(--flag-yellow) 80% 100%
+  );
+}
