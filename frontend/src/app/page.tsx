@@ -4,6 +4,7 @@ import { DestinationsSection } from "@/src/components/landing/destinations-secti
 import { FleetSection } from "@/src/components/landing/fleet-section";
 import { Hero } from "@/src/components/landing/hero";
 import { ReachSection } from "@/src/components/landing/reach-section";
+import { ReviewsSection } from "@/src/components/landing/reviews-section";
 import { ServicesSection } from "@/src/components/landing/services-section";
 import { SiteFooter } from "@/src/components/landing/site-footer";
 import { SiteHeader } from "@/src/components/landing/site-header";
@@ -21,6 +22,7 @@ export default function HomePage() {
         <ReachSection />
         <DestinationsSection />
         <AboutSection />
+        <ReviewsSection />
         <ContactSection />
       </main>
       <SiteFooter />

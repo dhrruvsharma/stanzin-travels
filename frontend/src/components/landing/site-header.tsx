@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { label: "Reach", href: "#reach" },
   { label: "Destinations", href: "#destinations" },
   { label: "About", href: "#about" },
+  { label: "Reviews", href: "#reviews" },
 ];
 
 export function SiteHeader() {

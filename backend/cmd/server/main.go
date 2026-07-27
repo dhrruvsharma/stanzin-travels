@@ -59,6 +59,8 @@ func main() {
 	// Public — used by the customer-facing site.
 	mux.HandleFunc("GET /api/v1/vehicles", h.ListVehicles)
 	mux.HandleFunc("POST /api/v1/trip-requests", h.CreateTripRequest)
+	mux.HandleFunc("POST /api/v1/reviews", h.CreateReview)
+	mux.HandleFunc("GET /api/v1/reviews", h.ListReviews)
 
 	// Dashboard auth.
 	mux.HandleFunc("POST /api/v1/auth/register", h.Register)
@@ -68,6 +70,7 @@ func main() {
 
 	// Dashboard data — bookings for admin+editor, users for admin only.
 	mux.Handle("GET /api/v1/trip-requests", staff(h.ListTripRequests))
+	mux.Handle("GET /api/v1/reviews/admin", staff(h.ListReviewsAdmin))
 	mux.Handle("GET /api/v1/users", adminOnly(h.ListUsers))
 	mux.Handle("PATCH /api/v1/users/{id}/role", adminOnly(h.UpdateUserRole))
 

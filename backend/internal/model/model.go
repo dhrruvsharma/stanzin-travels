@@ -80,3 +80,34 @@ type CreateTripRequest struct {
 	VehicleSlug   string    `json:"vehicle_slug"`
 	DayPlans      []DayPlan `json:"day_plans"`
 }
+
+// Highest star rating a review can carry; ratings run 0..MaxRating.
+const MaxRating = 5
+
+// Review is a customer testimonial. One review is allowed per email address.
+type Review struct {
+	ID        string    `json:"id"`
+	Name      string    `json:"name"`
+	Email     string    `json:"email"`
+	Rating    int       `json:"rating"`
+	Body      string    `json:"body"`
+	CreatedAt time.Time `json:"created_at"`
+}
+
+// PublicReview is the review projection shown on the public site. It omits the
+// reviewer's contact details, which only the back office needs to see.
+type PublicReview struct {
+	ID        string    `json:"id"`
+	Name      string    `json:"name"`
+	Rating    int       `json:"rating"`
+	Body      string    `json:"body"`
+	CreatedAt time.Time `json:"created_at"`
+}
+
+// CreateReview is the payload accepted by POST /api/v1/reviews.
+type CreateReview struct {
+	Name   string `json:"name"`
+	Email  string `json:"email"`
+	Rating int    `json:"rating"`
+	Body   string `json:"body"`
+}
