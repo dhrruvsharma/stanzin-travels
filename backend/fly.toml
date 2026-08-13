@@ -1,0 +1,27 @@
+app = "stanzin-travels-api"
+primary_region = "bom"
+
+[build]
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_start_machines = true
+  auto_stop_machines = "suspend"
+  # Keep one machine warm: both frontends fetch this API during SSR, so a cold
+  # start would show up as a slow page render. Set to 0 to trade latency for cost.
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    path = "/healthz"
+    method = "GET"
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
