@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "Fleet", href: "#fleet" },
   { label: "Reach", href: "#reach" },
   { label: "Destinations", href: "#destinations" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Reviews", href: "#reviews" },
 ];
 
@@ -36,12 +36,16 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#top" className="group flex flex-col leading-none">
+        <a
+          href="#top"
+          aria-label={`${CONTACT.name} — home`}
+          className="group flex flex-col leading-none"
+        >
           <span className="font-display text-xl font-semibold tracking-tight text-bone">
-            Stanzin
+            {CONTACT.shortName}
           </span>
           <span className="text-[0.6rem] font-semibold tracking-[0.32em] text-bone/60 uppercase group-hover:text-primary transition-colors">
-            Travels · Ladakh
+            Hodophile · Ladakh
           </span>
         </a>
 

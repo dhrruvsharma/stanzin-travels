@@ -1,14 +1,22 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Phone } from "lucide-react";
 import { TripRequestForm } from "@/src/components/book/trip-request-form";
 import { CONTACT } from "@/src/lib/site-data";
+import { breadcrumbJsonLd, jsonLdScript, pageMetadata } from "@/src/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Book your trip — Stanzin Travels",
+export const metadata = pageMetadata({
+  title: "Book your Ladakh trip",
   description:
-    "Request a Ladakh trip with Stanzin Travels — drivers, stays and complete itineraries.",
-};
+    "Request a Ladakh trip with Laddakh Hodophile — drivers, vehicles, stays and complete itineraries. Tell us your dates and group; Namsras calls you back. No payment, no login.",
+  path: "/book",
+  keywords: [
+    "book Ladakh trip",
+    "Ladakh trip enquiry",
+    "hire taxi in Leh",
+    "Ladakh tour booking",
+    "custom Ladakh itinerary",
+  ],
+});
 
 export default function BookPage() {
   return (
@@ -19,7 +27,7 @@ export default function BookPage() {
           className="inline-flex items-center gap-2 text-sm text-bone/60 transition-colors hover:text-bone"
         >
           <ArrowLeft className="size-4" />
-          Stanzin Travels
+          {CONTACT.name}
         </Link>
         <a
           href={CONTACT.tel}
@@ -48,6 +56,16 @@ export default function BookPage() {
 
         <TripRequestForm />
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Book your Ladakh trip", path: "/book" },
+          ]),
+        )}
+      />
     </main>
   );
 }

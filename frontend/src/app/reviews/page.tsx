@@ -1,17 +1,29 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Phone } from "lucide-react";
 import { ReviewForm } from "@/src/components/reviews/review-form";
 import { ReviewCard, Stars } from "@/src/components/reviews/review-card";
 import { Reveal } from "@/src/components/landing/reveal";
 import { CONTACT } from "@/src/lib/site-data";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  jsonLdScript,
+  pageMetadata,
+} from "@/src/lib/seo";
 import { ReviewService } from "@/src/service";
 
-export const metadata: Metadata = {
-  title: "Reviews — Stanzin Travels",
+export const metadata = pageMetadata({
+  title: "Traveller reviews",
   description:
-    "What travellers say about their Ladakh trips with Stanzin Travels — and leave a review of your own.",
-};
+    "Honest reviews from travellers who rode the Ladakh passes with Laddakh Hodophile — and leave a review of your own trip.",
+  path: "/reviews",
+  keywords: [
+    "Ladakh travel reviews",
+    "Leh taxi reviews",
+    "Ladakh tour operator reviews",
+    "best Ladakh driver",
+  ],
+});
 
 // Reviews change when travellers post, so keep this page fresh.
 export const dynamic = "force-dynamic";
@@ -35,7 +47,7 @@ export default async function ReviewsPage() {
           className="inline-flex items-center gap-2 text-sm text-bone/60 transition-colors hover:text-bone"
         >
           <ArrowLeft className="size-4" />
-          Stanzin Travels
+          {CONTACT.name}
         </Link>
         <a
           href={CONTACT.tel}
@@ -97,6 +109,35 @@ export default async function ReviewsPage() {
           )}
         </section>
       </div>
+
+      {reviews.length > 0 ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLdScript({
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "@id": absoluteUrl("/#organization"),
+            name: CONTACT.name,
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: average,
+              reviewCount: reviews.length,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          })}
+        />
+      ) : null}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Traveller reviews", path: "/reviews" },
+          ]),
+        )}
+      />
     </main>
   );
 }

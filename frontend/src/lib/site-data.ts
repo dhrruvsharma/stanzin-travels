@@ -1,11 +1,18 @@
 export const CONTACT = {
-  name: "Stanzin Travels",
+  name: "Laddakh Hodophile",
+  /** First word of the brand, used alone in the compact header logo. */
+  shortName: "Laddakh",
   owner: "Namsras Stanzin",
   phoneDisplay: "+91 96220 68288",
+  phoneE164: "+919622068288",
   tel: "tel:+919622068288",
   whatsapp:
     "https://wa.me/919622068288?text=Julley!%20I%27d%20like%20to%20plan%20a%20Ladakh%20trip.",
   base: "Nubra Valley · Leh · Ladakh",
+  addressLocality: "Leh",
+  addressRegion: "Ladakh",
+  postalCode: "194101",
+  addressCountry: "IN",
 };
 
 export type Service = {

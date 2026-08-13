@@ -178,7 +178,7 @@ export function ReviewForm() {
               id="review-body"
               rows={5}
               maxLength={2000}
-              placeholder="Tell fellow travellers about your trip with Stanzin Travels…"
+              placeholder="Tell fellow travellers about your trip with Laddakh Hodophile…"
               value={body}
               onChange={(e) => setBody(e.target.value)}
               className={cn(inputClass, "resize-y")}

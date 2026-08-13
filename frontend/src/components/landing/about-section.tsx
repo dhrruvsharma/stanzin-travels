@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Badge } from "@/src/components/ui/badge";
+import { CONTACT } from "@/src/lib/site-data";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 
@@ -57,9 +60,9 @@ export function AboutSection() {
               <p>
                 Namsras grew up in Nubra Valley, on the far side of Khardung La
                 — which means the world&apos;s highest motorable roads were his
-                school run. Before starting Stanzin Travels he rode as a
-                marshal for touring bike groups, shepherding riders over the
-                same passes he now drives daily.
+                school run. Before starting {CONTACT.name} he rode as a marshal
+                for touring bike groups, shepherding riders over the same
+                passes he now drives daily.
               </p>
               <p>
                 He&apos;s been doing this officially for two years, but there is
@@ -99,6 +102,16 @@ export function AboutSection() {
                 </div>
               ))}
             </dl>
+          </Reveal>
+
+          <Reveal delay={0.35}>
+            <Link
+              href="/about"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-saffron transition-colors hover:text-primary"
+            >
+              Read the full story
+              <ArrowRight className="size-4" />
+            </Link>
           </Reveal>
         </div>
       </div>
